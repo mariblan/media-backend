@@ -4,6 +4,7 @@ const serieSchema = new Schema({
   title: { type: String, required: true },
   producer: { type: String, required: true },
   year: { type: Number, required: true },
+  category: { type: String, required: true, default: 'serie' },
   rating: { type: Number, required: true },
   sinopsis: { type: String, required: true },
   image: { type: String, required: true },

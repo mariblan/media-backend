@@ -32,7 +32,6 @@ const getOneSerie = async (req, res) => {
   try {
     const { id } = req.params;
     const serieById = await seriesCollection.findById(id);
-    console.log(serieById);
 
     if (serieById) return res.status(200).json(serieById);
 

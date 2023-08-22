@@ -4,6 +4,7 @@ const filmSchema = new Schema({
   title: { type: String, required: true },
   director: { type: String, required: true },
   year: { type: Number, required: true },
+  category: { type: String, required: true, default: 'film' },
   rating: { type: Number, required: true },
   sinopsis: { type: String, required: true },
   image: { type: String, required: true },
