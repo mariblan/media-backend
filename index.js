@@ -1,19 +1,19 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 const authRouter = require('./routes/authRoutes.js');
 const usersRouter = require('./routes/usersRoutes.js');
 const booksRouter = require('./routes/booksRoutes.js');
 const seriesRouter = require('./routes/seriesRoutes.js');
 const filmsRouter = require('./routes/filmsRoutes.js');
-
+require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
-
-require('dotenv').config();
 
 const connectToDB = require('./DB/dbConnection.js');
 connectToDB();
 
+app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 
