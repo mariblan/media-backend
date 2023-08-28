@@ -29,7 +29,7 @@ const loginUser = async (req, res) => {
     if (!user) return res.status(404).send('User not found');
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).send('Invalid credentials');
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: '1d',
     });
     res.status(200).json({ token });

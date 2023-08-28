@@ -6,11 +6,13 @@ const verifyToken = (req, res, next) => {
       headers: { authorization },
     } = req;
 
+    console.log(authorization);
+
     if (!authorization) return res.status(401).send('Access denied');
 
-    const { id } = jwt.verify(authorization, process.env.JWT_SECRET);
-
-    req.userId = id;
+    const { _id } = jwt.verify(authorization, process.env.JWT_SECRET);
+    console.log(_id);
+    req.userId = _id;
     next();
   } catch (error) {
     // res.status(401).send('Invalid token');
