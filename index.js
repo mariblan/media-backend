@@ -12,10 +12,10 @@ const port = process.env.PORT || 5000;
 
 const connectToDB = require('./DB/dbConnection.js');
 connectToDB();
-
+const whitelist = process.env.FRONTENDPATH || process.env.LOCALPATH;
 app.use(
   cors({
-    origin: process.env.LOCALPATH,
+    origin: whitelist,
     optionsSuccessStatus: 200,
   })
 );
